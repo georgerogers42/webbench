@@ -1,11 +1,12 @@
 {application, foobar,
  [
   {description, ""},
-  {vsn, "1"},
+  {vsn, git},
   {registered, []},
   {applications, [
                   kernel,
-                  stdlib
+                  stdlib,
+									cowboy
                  ]},
   {mod, { foobar_app, []}},
   {env, []}

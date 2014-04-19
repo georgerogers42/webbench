@@ -11,7 +11,7 @@
 
 start(_StartType, _StartArgs) ->
 		R = cowboy_router:compile(routes()),
-		cowboy:start_http(foobar, 100, [{port, 8080}], [{env, [{router, R}]}]),
+		cowboy:start_http(foobar, 100, [{port, 8080}], [{env, [{dispatch, R}]}]),
     foobar_sup:start_link().
 
 stop(_State) ->
