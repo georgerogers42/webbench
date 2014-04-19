@@ -16,3 +16,8 @@ start(_StartType, _StartArgs) ->
 
 stop(_State) ->
     ok.
+
+routes() ->
+		[{'_', 
+			[{<<"/">>, foobar_index, []}]}].
+
