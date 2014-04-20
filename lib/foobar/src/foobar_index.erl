@@ -2,7 +2,7 @@
 -export([init/3, handle/2, terminate/3]).
 
 init(_Type, Req0, State0) ->
-		State1 = dict:new(State0),
+		State1 = dict:from_list(State0),
 		{ok, Req0, State1}.
 
 handle(Req0, State0) ->
