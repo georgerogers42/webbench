@@ -15,6 +15,7 @@ start(_StartType, _StartArgs) ->
     foobar_sup:start_link().
 
 stop(_State) ->
+		cowboy:stop(foobar),
     ok.
 
 routes() ->
