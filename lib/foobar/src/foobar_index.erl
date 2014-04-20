@@ -7,8 +7,9 @@ init(_Type, Req0, State0) ->
 		State1 = maps:merge(maps:merge(maps:from_list(Bindings), State0), maps:from_list(QsVals)),
 		{ok, Req2, State1}.
 
-handle(Req0, State0=#{who := Who, <<"what">> := What}) ->
-		{ok, Req1} = cowboy_req:reply(200, [], [What,  <<" ">>, Who, $!] , Req0),
+handle(Req0, State0) ->
+		{ok, Html} = foobar_index_dtl:render(maps:to_list(State0)),
+		{ok, Req1} = cowboy_req:reply(200, [{<<"document-type">>, <<"text/html">>}], Html, Req0),
 		{ok, Req1, State0}.
 
 terminate(_Reason, _Req, _State) ->
