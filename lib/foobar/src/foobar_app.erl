@@ -20,5 +20,5 @@ stop(_State) ->
 
 routes() ->
 		[{'_', 
-			[{<<"/">>, foobar_index, [{<<"who">>, <<"George">>}]}]}].
+			[{<<"/:who">>, foobar_index, #{}}]}].
 

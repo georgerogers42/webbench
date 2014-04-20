@@ -8,7 +8,7 @@ init(_Type, Req0, State0) ->
 		{ok, Req2, State1}.
 
 handle(Req0, State0=#{who := Who, <<"what">> := What}) ->
-		{ok, Req1} = cowboy_req:reply(200, [], [What,  <<" ">>, Who, $!] , Req0),
+		{ok, Req1} = cowboy_req:reply(200, [], [What,    <<" ">>, Who, $!] , Req0),
 		{ok, Req1, State0}.
 
 terminate(_Reason, _Req, _State) ->
