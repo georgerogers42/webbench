@@ -1,6 +1,6 @@
 {application,foobar,
              [{description,[]},
-              {vsn,"2"},
+              {vsn,"3"},
               {registered,[]},
               {applications,[kernel,stdlib,cowboy]},
               {mod,{foobar_app,[]}},
