@@ -20,5 +20,5 @@ stop(_State) ->
 
 routes() ->
 		[{'_', 			
-			[{<<"/static/[...]">>, cowboy_static, {dir, "assets"}},
+			[{<<"/static/[...]">>, cowboy_static, {priv_dir, foobar, "assets"}},
 			 {<<"/:who">>, foobar_index, [{<<"what">>, <<"fsck">>}]}]}].
