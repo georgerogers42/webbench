@@ -3,7 +3,7 @@
 -behaviour(application).
 
 %% Application callbacks
--export([start/2, stop/1]).
+-export([start/2, stop/1, routes/0]).
 
 %% ===================================================================
 %% Application callbacks
@@ -19,6 +19,6 @@ stop(_State) ->
     ok.
 
 routes() ->
-		[{'_', 
-			[{<<"/:who">>, foobar_index, #{<<"what">> => <<"fsck">>}}]}].
-
+		[{'_', 			
+			[{<<"/static/[...]">>, cowboy_static, {priv_dir, foobar, "static/assets"}},
+			 {<<"/:who">>, foobar_index, [{<<"what">>, <<"fsck">>}]}]}].
