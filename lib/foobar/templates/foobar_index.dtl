@@ -1,9 +1,0 @@
-<!doctype html>
-<html>
-	<head>
-		<title>{{what}} you, {{who}}!</title>
-	</head>
-	<body>
-		<h1>{{what}} you, {{who}}!</h1>
-	</body>
-</html>
