@@ -9,14 +9,8 @@
 %% Application callbacks
 %% ===================================================================
 
-start_apps([]) ->
-    ok;
-start_apps([App|Apps]) ->
-    application:start(App),
-    start_apps(Apps).
-
 start() ->
-    start_apps([sasl, cowlib, ranch, crypto, cowboy, foobar]).
+    application:ensure_all_started(foobar).
 
 start(_StartType, _StartArgs) ->
 		R = cowboy_router:compile(routes()),
