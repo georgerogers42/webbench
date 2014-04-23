@@ -23,14 +23,23 @@ stop(_State) ->
     ok.
 
 routes() ->
-		[{'_', 			
+		[{'_',
 			[{<<"/static/[...]">>, cowboy_static, {priv_dir, foobar, "assets"}},
-			 {<<"/:who">>, foobar_index, [{<<"what">>, <<"fsck">>}]},
-       {<<"/">>, foobar_index, [{<<"what">>, <<"fsck">>}, {who, <<"George">>}]}]}].
+			 {<<"/:who">>, foobar_index, [{what, <<"fsck">>}]},
+       {<<"/">>, foobar_index, [{what, <<"fsck">>}, {who, <<"George">>}]}]}].
+
+getenv(V) ->
+		case os:getenv(V) of
+				X when is_list(X) ->
+						list_to_binary(X);
+				X ->
+						X
+		end.
 
 port() ->
-    case os:getenv("PORT") of
-      X when is_list(X) -> list_to_integer(X);
-      X when is_binary(X) -> binary_to_integer(X);
-      _X -> 8080
+    case getenv("PORT") of
+				false ->
+						8080;
+				X when is_binary(X) ->
+						binary_to_integer(X)
     end.
