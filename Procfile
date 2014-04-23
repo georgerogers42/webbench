@@ -1,2 +1,1 @@
-web: ./foobar/bin/foobar foreground
-console: ./foobar/bin/foobar remote_console
+web: erl -pa deps/*/ebin lib/*/ebin -s foobar_app

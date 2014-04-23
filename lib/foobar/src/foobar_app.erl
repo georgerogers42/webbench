@@ -3,11 +3,20 @@
 -behaviour(application).
 
 %% Application callbacks
--export([start/2, stop/1, routes/0, port/0]).
+-export([start/0, start/2, stop/1, routes/0, port/0]).
 
 %% ===================================================================
 %% Application callbacks
 %% ===================================================================
+
+start_apps([]) ->
+    ok;
+start_apps([App|Apps]) ->
+    application:start(App),
+    start_apps(Apps).
+
+start() ->
+    start_apps([sasl, cowlib, ranch, crypto, cowboy, foobar]).
 
 start(_StartType, _StartArgs) ->
 		R = cowboy_router:compile(routes()),
