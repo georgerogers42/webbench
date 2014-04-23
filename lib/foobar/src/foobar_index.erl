@@ -9,7 +9,9 @@ init(_Type, Req0, State0) ->
 		{ok, Req2, State2}.
 
 handle(Req0, State0) ->
-    {ok, Message} = State0:find(who),
+    {ok, Who} = State0:find(who),
+    {ok, What} = State0:find(<<"what">>),
+    Message = [What, <<" you, ">>, Who, <<"!">>],
 		{ok, Req1} = cowboy_req:reply(200, [{<<"document-type">>, <<"text/plain">>}], Message, Req0),
 		{ok, Req1, State0}.
 
