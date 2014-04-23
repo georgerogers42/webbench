@@ -1,1 +1,1 @@
-web: erl -pa deps/*/ebin lib/*/ebin -s foobar_app
+web: erl -pa deps/*/ebin lib/*/ebin -noshell -s foobar_app
